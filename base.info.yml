@@ -1,0 +1,28 @@
+name: Base
+type: theme
+description: 'Base Drupal 8/9 Theme'
+package: custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: stable9
+
+libraries:
+  - base/global-styling
+  - core/jquery
+  - core/drupal
+
+regions:
+  header: Header
+  top_content: Top content
+  content: Page content
+  sidebar: Sidebar
+  bottom_content: Bottom content
+  footer: Footer
+
+libraries-override:
+  system/base: false
+  views/views.module: false
+  paragraphs/drupal.paragraphs.unpublished:
+    css:
+      theme:
+        css/paragraphs.unpublished.css: false

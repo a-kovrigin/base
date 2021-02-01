@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * @file
+ * Main file for Base theme.
+ */
+
+use Drupal\Core\Url;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function base_preprocess_html(&$variables) {
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['attributes']['class'][] = 'is-front';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function base_preprocess_region(&$variables) {
+  $variables['region'] = Html::cleanCssIdentifier($variables['region']);
+}
+
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function base_preprocess_page(&$variables) {
+  $page = &$variables['page'];
+
+  // Sidebar layout attributes.
+  $layout_attributes = new Attribute();
+  $layout_attributes->addClass('main-layout');
+
+  if (!empty($variables['page']['sidebar'])) {
+    $layout_attributes->addClass('main-layout--with-sidebar');
+  }
+
+  $layout_attributes->addClass('container');
+  $variables['layout_attributes'] = $layout_attributes;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function base_preprocess_block(&$variables) {
+  $variables['block_class'] = Html::cleanCssIdentifier($variables['elements']['#id']);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function base_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function base_preprocess_field(&$variables) {
+  $field_name = $variables['field_name'];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function base_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $field_name = $variables['element']['#field_name'];
+
+  $suggestion_name = [
+    'field',
+    $variables['element']['#entity_type'],
+    $variables['element']['#field_name'],
+    $variables['element']['#view_mode'],
+  ];
+
+  // Clean layout fields.
+  $clean_fields = [];
+  if (in_array($field_name, $clean_fields)) {
+    $suggestions[] = 'field__clean';
+  }
+
+  // Content blocks body field.
+  if ($field_name === 'body') {
+    if ($variables['element']['#entity_type'] === 'block_content') {
+      $suggestions[] = 'field__clean';
+    }
+  }
+
+  $suggestions[] = implode('__', $suggestion_name);
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function base_preprocess_menu_local_tasks(&$variables) {
+  if (isset($variables['primary']['entity.node.delete_form'])) {
+    $variables['primary']['entity.node.delete_form']['#weight'] = 101;
+  }
+}

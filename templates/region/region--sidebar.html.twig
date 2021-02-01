@@ -1,0 +1,9 @@
+{% if content %}
+  {% block region %}
+    <aside{{ attributes.addClass(region) }}>
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+    </aside>
+  {% endblock %}
+{% endif %}

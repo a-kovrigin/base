@@ -1,0 +1,24 @@
+global-styling:
+  css:
+    base:
+      assets/css/base/base.css: {}
+    component:
+      assets/css/components/elements.css: {}
+      assets/css/components/form.css: {}
+    layout:
+      assets/css/layout/header.css: {}
+      assets/css/layout/sidebar.css: {}
+      assets/css/layout/footer.css: {}
+    theme:
+      assets/css/content/front.css: {}
+  js:
+    assets/js/base.js: {}
+    assets/js/vendor.js: {}
+
+front:
+  theme:
+    assets/css/contnet/front.css: {}
+
+contacts:
+  theme:
+    assets/css/content/contacts.css: {}

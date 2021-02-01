@@ -1,0 +1,21 @@
+{{ page.header }}
+
+<main{{ layout_attributes }}>
+  {{ page.top_content }}
+
+  <div class="main-layout__content">
+    {{ page.sidebar }}
+    {{ page.content }}
+  </div>
+</main>
+
+{{ page.bottom_content }}
+
+{{ page.footer }}
+
+<div class="modals">
+  <div class="modal-overlay"></div>
+
+  {{ page.modals }}
+</div>
+

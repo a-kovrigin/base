@@ -1,0 +1,23 @@
+{% set classes = [
+    block_class,
+    'modal-form',
+    'modal-form--' ~ block_class,
+  ]
+%}
+<div id="{{ block_class }}" class="{{ classes|join(' ') }}">
+  {% if label %}
+    <p class="modal-form__heading">{{ label }}</p>
+  {% endif %}
+
+  <span class="modal-form__close close-modals close-icon">
+    <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6804 13H10.5844L7.16435 8.03202H6.80435L3.38435 13H0.360352L5.36435 6.37602L0.720352 0.400024H3.74435L6.87635 4.86403H7.23635L10.2244 0.400024H13.3204L8.60435 6.37602L13.6804 13Z" fill="#888888"/></svg>
+  </span>
+
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {{ title_suffix }}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+</div>

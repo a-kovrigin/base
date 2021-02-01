@@ -1,0 +1,16 @@
+/* ------------------------- Header ------------------------- */
+.header {
+  position: relative;
+  background-color: #fff;
+  font-size: .94rem;
+  z-index: 8;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.25rem;
+}

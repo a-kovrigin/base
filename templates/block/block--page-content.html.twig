@@ -1,0 +1,6 @@
+{% do attributes.removeAttribute('id') %}
+{% spaceless %}
+{% block content %}
+  {{ content }}
+{% endblock %}
+{% endspaceless %}
