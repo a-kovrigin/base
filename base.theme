@@ -5,11 +5,8 @@
  * Main file for Base theme.
  */
 
-use Drupal\Core\Url;
 use Drupal\Core\Template\Attribute;
-use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_html().
@@ -37,12 +34,13 @@ function base_preprocess_page(&$variables) {
   // Sidebar layout attributes.
   $layout_attributes = new Attribute();
   $layout_attributes->addClass('main-layout');
+  $layout_attributes->addClass('container');
+
 
   if (!empty($variables['page']['sidebar'])) {
     $layout_attributes->addClass('main-layout--with-sidebar');
   }
 
-  $layout_attributes->addClass('container');
   $variables['layout_attributes'] = $layout_attributes;
 }
 
