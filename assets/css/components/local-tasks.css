@@ -1,0 +1,33 @@
+/* --------------------------------- Menu local tasks --------------------------------- */
+.nav-tabs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  margin: 0 0 2rem;
+}
+
+.nav-tabs .nav-item {
+  display: block;
+  margin-bottom: -1px;
+}
+
+.nav-tabs a {
+  display: block;
+  border: 1px solid transparent;
+  padding: 1rem 2rem;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 300;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.nav-tabs a:hover {
+  background: var(--base-color-light);
+}
+
+.nav-tabs a.is-active {
+  display: block;
+  background-color: #fff;
+  border-color: var(--border-color) var(--border-color) #fff;
+}

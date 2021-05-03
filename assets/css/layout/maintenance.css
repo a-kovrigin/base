@@ -1,0 +1,18 @@
+/* ------------------------- Maintenance pages ------------------------- */
+.maintenance-page {
+  background-color: var(--base-color);
+}
+
+.maintenance-page .dialog-off-canvas-main-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.maintenance-container {
+  background-color: #fff;
+  padding: 4rem;
+  border-radius: 3px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+}

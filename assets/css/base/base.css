@@ -1,29 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 /* ------------------------- CSS reset ------------------------- */
 html, body, main, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video, input, select, textarea{margin: 0;padding: 0;font-size: 100%;vertical-align: baseline;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display: block;}blockquote, q{quotes: none;}blockquote:before, blockquote:after,q:before, q:after{content: '';content: none;}table{border-collapse: collapse;border-spacing: 0;}input[type="submit"]{cursor: pointer;border:none;}input,select, textarea{outline: none;resize:none;-webkit-appearance:none;}html,body{height: 100%;margin:0;padding: 0;}fieldset{border:none;}
 
 /* ------------------------- Variables ------------------------- */
 :root {
   /* Base color */
-  --base-color: #0063D7;
+  --base-color: #0063d7;
   --base-color-hover: #0054b7;
   --base-color-light: #F6F8FA;
 
   /* Layout */
+  --header-height: 6rem;
   --spacer: 5rem;
-  --sidebar-width: 320px;
-  --content-small-width: calc(100% - var(--sidebar-width) - 30px);
+  --sidebar-width: 20rem;
+  --content-small-width: calc(100% - var(--sidebar-width) - 2rem);
 
   /* Fonts */
-  --base-font: 'Roboto', sans-serif;
+  --base-font: 'Open Sans', sans-serif;
   --base-font-color: #323232;
 
   /* Borders */
   --border-color: #eee;
   --border-radius: 3px;
+  --input-border-color: #e3e3e3;
 
-  /* Buttons */
-  --button-height: 52px;
+    /* Buttons */
+  --button-height: 3.25rem;
   --button-padding: 0 2rem;
 
   /* Colors */
@@ -33,15 +34,12 @@ html, body, main, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, b
   --color-success-hover: #009631;
   --color-success-light: #c3e4ac;
   --color-warning: #EF9328;
-  --color-danger: #ffe6e9;
-  --color-danger-light: #ffd6dc;
+  --color-danger: #ff465c;
+  --color-danger-light: #ffe8ec;
   --color-disabled: #ccc;
-
-  /* Sprite */
-  --sprite: url(../../img/sprt.svg) no-repeat;
 }
 
-/* ------------------------- Base layout styles ------------------------- */
+/* ------------------------- Base layout ------------------------- */
 html {
   font-size: 16px;
 }
@@ -55,11 +53,11 @@ body {
 }
 
 .container {
-  max-width: 1270px;
+  max-width: 1660px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .dialog-off-canvas-main-canvas {
@@ -67,7 +65,7 @@ body {
 }
 
 .main-layout {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .main-layout__content {
@@ -112,24 +110,23 @@ body {
 }
 
 /* ------------------------- Animations ------------------------- */
-@keyframes fadeIn{from{visibility: hidden;;transition: all 300ms cubic-bezier(.2,0,.2,1);opacity: 0;}to{visibility: visible;opacity: 1;}}
-@keyframes loader {0%{transform: rotate(0deg);}100%{transform: rotate(360deg);}}
-
-/* ------------------------- Maintenance page ------------------------- */
-.maintenance-page {
-  background-color: var(--base-color);
+@keyframes fadeIn {
+  from {
+    visibility: hidden;
+    transition: all 300ms cubic-bezier(.2,0,.2,1);
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-.maintenance-page .dialog-off-canvas-main-canvas {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.maintenance-container {
-  background-color: #fff;
-  padding: 4rem;
-  border-radius: 3px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
 }

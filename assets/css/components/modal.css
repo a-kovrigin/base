@@ -1,0 +1,99 @@
+/* ------------------------- Modal forms ------------------------- */
+.modals {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modals.is-visible {
+  display: flex;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+  z-index: 100;
+}
+
+.modals.is-visible .modal-overlay {
+  display: block;
+  animation: fadeIn .4s ease;
+}
+
+.modal-form {
+  position: relative;
+  display: none;
+  width: 460px;
+  height: auto;
+  padding: 2rem 3rem;
+  background-color: #fff;
+  box-shadow: 0 2px 20px rgba(209, 208, 208, 0.25);
+  border-radius: 5px;
+  z-index: 101;
+}
+
+.modal-form.is-visible {
+  display: block;
+}
+
+.modal-form__heading {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-form .form-item {
+  margin-bottom: 15px;
+}
+
+.modal-form input[type="text"],
+.modal-form input[type="email"],
+.modal-form input[type="tel"]{
+  height: calc(var(--button-height) * 0.8);
+  line-height: calc(var(--button-height) * 0.8);
+}
+
+.modal-form textarea {
+  height: 100px;
+}
+
+.modal-form .form-actions {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--base-color);
+  color: #fff;
+  line-height: 35px;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .2s ease;
+  z-index: 9;
+}
+
+.close-icon:hover {
+  background-color: var(--base-color-hover);
+}
+
+.modal-form__close {
+  border-radius: 0 var(--border-radius) 0 0;
+}

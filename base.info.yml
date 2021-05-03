@@ -1,9 +1,8 @@
 name: Base
 type: theme
-description: 'Base Drupal 8/9 Theme'
+description: 'Base Drupal 9 Theme'
 package: custom
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9
 base theme: stable9
 
 libraries:
@@ -18,11 +17,32 @@ regions:
   sidebar: Sidebar
   bottom_content: Bottom content
   footer: Footer
+  modals: Modals
+
+libraries-extend:
+  base_module/swiper:
+    - base/swiper-overrides
 
 libraries-override:
+  #commerce_cart/cart_block:
+  #  css:
+  #    layout:
+  #      css/commerce_cart.layout.css: false
+  #    theme:
+  #      css/commerce_cart.theme.css: false
+  #  js:
+  #    js/commerce_cart.js: false
+  #  commerce_checkout/form:
+  #    css:
+  #      theme:
+  #        css/commerce_checkout.form.css: false
   system/base: false
   views/views.module: false
   paragraphs/drupal.paragraphs.unpublished:
     css:
       theme:
         css/paragraphs.unpublished.css: false
+  paragraphs/drupal.paragraphs.admin:
+    css:
+      theme:
+        css/paragraphs.admin.css: false

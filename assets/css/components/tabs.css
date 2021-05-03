@@ -1,0 +1,13 @@
+/* ------------------------- Tabs ------------------------- */
+.tab {
+  cursor: pointer;
+}
+
+.tabcontent {
+  display: none;
+  animation: fadeIn .3s;
+}
+
+.tabcontent.is-visible {
+  display: block;
+}

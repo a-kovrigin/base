@@ -1,5 +1,4 @@
-{% set field_name = field_name|replace({'field_':''}) ~ '-field' %}
-{% set field_item_name = field_name|replace({'field_':''}) ~ '__item' %}
+{% set field_item_name = field_name ~ '__item' %}
 {%
   set title_classes = [
     field_name ~ '__label',

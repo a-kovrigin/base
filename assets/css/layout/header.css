@@ -1,4 +1,8 @@
 /* ------------------------- Header ------------------------- */
+.toolbar-fixed .header.is-fixed {
+  top: 79px;
+}
+
 .header {
   position: relative;
   background-color: #fff;
@@ -7,10 +11,18 @@
   border-bottom: 1px solid var(--border-color);
 }
 
+.header.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+
 .header__content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 6.25rem;
+  height: var(--header-height);
 }

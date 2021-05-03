@@ -1,10 +1,10 @@
 {% set classes = [
-    block_class,
+    class,
     'modal-form',
-    'modal-form--' ~ block_class,
+    'modal-form--' ~ class,
   ]
 %}
-<div id="{{ block_class }}" class="{{ classes|join(' ') }}">
+<div id="{{ class }}" class="{{ classes|join(' ') }}">
   {% if label %}
     <p class="modal-form__heading">{{ label }}</p>
   {% endif %}

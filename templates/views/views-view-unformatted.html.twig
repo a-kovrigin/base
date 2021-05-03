@@ -15,9 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-{%
-  set group_class = view.id() ~ '-' ~ view.current_display ~ '-items'
-%}
+{% set group_class = view.id() ~ '-items' ~ ' ' ~ view.id() ~ '-items' ~ '--' ~ view.current_display %}
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}

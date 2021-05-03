@@ -1,0 +1,82 @@
+/* ------------------------- Buttons ------------------------- */
+.button {
+  display: inline-flex;
+  width: auto;
+  height: var(--button-height);
+  line-height: var(--button-height);
+  font-family: var(--base-font);
+  background-color: var(--base-color);
+  padding: var(--button-padding);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.button::selection {
+  background-color: transparent;
+}
+
+.button:hover {
+  background-color: var(--base-color-hover);
+  color: #fff;
+}
+
+.button:focus {
+  box-shadow: none;
+}
+
+.button--primary {
+  box-shadow: 0 4px 10px rgba(0, 85, 185, 0.25);
+}
+
+.button[disabled], .button[disabled]:hover {
+  background-color: var(--color-disabled);
+  box-shadow: none;
+  cursor: default;
+  transition: background-color .2s ease;
+}
+
+.button--flat,
+input.button--flat {
+  color: var(--base-color);
+  border: 1px solid var(--base-color);
+  background-color: transparent;
+}
+
+.button--flat:hover {
+  background-color: var(--base-color);
+  color: #fff;
+}
+
+.button--small {
+  font-size: 0.875rem;
+  height: calc(var(--button-height) * 0.75);
+  line-height: calc(var(--button-height) * 0.75);
+  padding: 0 1rem;
+}
+
+.button--extra {
+  background-color: var(--color-success);
+  box-shadow: none;
+}
+
+.button--extra:hover {
+  background-color: var(--color-success-hover);
+}
+
+.button--light {
+  background-color: var(--base-color-light);
+  color: var(--base-color);
+}
+
+.button--light:hover {
+  background-color: var(--base-color);
+  color: #fff;
+}

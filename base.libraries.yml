@@ -2,23 +2,60 @@ global-styling:
   css:
     base:
       assets/css/base/base.css: {}
-    component:
-      assets/css/components/elements.css: {}
-      assets/css/components/form.css: {}
     layout:
       assets/css/layout/header.css: {}
-      assets/css/layout/sidebar.css: {}
       assets/css/layout/footer.css: {}
-    theme:
-      assets/css/content/front.css: {}
+    component:
+      assets/css/components/elements.css: {}
+      assets/css/components/images.css: {}
+      assets/css/components/links.css: {}
+      assets/css/components/buttons.css: {}
+      assets/css/components/typography.css: {}
+      assets/css/components/messages.css: {}
+      assets/css/components/ajax.css: {}
+      assets/css/components/forms.css: {}
   js:
     assets/js/base.js: {}
     assets/js/vendor.js: {}
 
-front:
-  theme:
-    assets/css/contnet/front.css: {}
+local-tasks:
+  css:
+    component:
+      assets/css/components/local-tasks.css: {}
 
-contacts:
-  theme:
-    assets/css/content/contacts.css: {}
+breadcrumbs:
+  css:
+    component:
+      assets/css/components/breadcrumbs.css: {}
+
+tabs:
+  css:
+    component:
+      assets/css/components/tabs.css: {}
+  js:
+    assets/js/tabs.js: {}
+
+modal:
+  css:
+    component:
+      assets/css/components/modal.css: {}
+
+pager:
+  css:
+    component:
+      assets/css/components/pager.css: {}
+
+swiper-overrides:
+  css:
+    component:
+      assets/css/components/swiper-overrides.css: {}
+
+maintenance:
+  css:
+    layout:
+      assets/css/layout/maintenance.css: {}
+
+front:
+  css:
+    theme:
+      assets/css/contnet/front.css: {}

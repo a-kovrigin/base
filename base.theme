@@ -7,6 +7,8 @@
 
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 
 /**
  * Implements hook_preprocess_html().
@@ -48,7 +50,11 @@ function base_preprocess_page(&$variables) {
  * Implements hook_preprocess_block().
  */
 function base_preprocess_block(&$variables) {
-  $variables['block_class'] = Html::cleanCssIdentifier($variables['elements']['#id']);
+  if (!isset($variables['elements']['#id'])) {
+    return;
+  }
+
+  $variables['class'] = Html::cleanCssIdentifier($variables['elements']['#id']);
 }
 
 /**
@@ -65,6 +71,8 @@ function base_theme_suggestions_block_alter(array &$suggestions, array $variable
  */
 function base_preprocess_field(&$variables) {
   $field_name = $variables['field_name'];
+  $field_name_formatted = str_replace('field_', '', $field_name) . '-field';
+  $variables['field_name'] = Html::cleanCssIdentifier($field_name_formatted);
 }
 
 /**
@@ -72,6 +80,7 @@ function base_preprocess_field(&$variables) {
  */
 function base_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $field_name = $variables['element']['#field_name'];
+  $view_mode = $variables['element']['#view_mode'];
 
   $suggestion_name = [
     'field',
@@ -100,7 +109,75 @@ function base_theme_suggestions_field_alter(array &$suggestions, array $variable
  * Implements hook_menu_local_tasks_alter().
  */
 function base_preprocess_menu_local_tasks(&$variables) {
+  $variables['#attached']['library'][] = 'base/local-tasks';
+
   if (isset($variables['primary']['entity.node.delete_form'])) {
     $variables['primary']['entity.node.delete_form']['#weight'] = 101;
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function base_preprocess_breadcrumb(&$variables) {
+  $variables['#attached']['library'][] = 'base/breadcrumbs';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function base_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+
+  // Pager library.
+  if ($view->getDisplay()->isPagerEnabled() && !empty($variables['rows'])) {
+    $variables['#attached']['library'][] = 'base/pager';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function base_preprocess_responsive_image(&$variables) {
+  if (!isset($variables['img_element']['#attributes']['loading'])) {
+    $variables['img_element']['#attributes']['loading'] = 'lazy';
+  }
+
+  $responsive_style = ResponsiveImageStyle::load($variables['responsive_image_style_id']);
+  if (!$responsive_style) {
+    return;
+  }
+
+  $image_factory = \Drupal::service('image.factory');
+  $fallback_style = ImageStyle::load($responsive_style->getFallbackImageStyle());
+
+  if (!$fallback_style) {
+    return;
+  }
+
+  $fallback_image = $fallback_style->buildUri($variables['uri']);
+  $image_factory->get($fallback_image);
+  $variables['img_element']['#attributes']['width'] = $image_factory->get($fallback_image)->getWidth();
+  $variables['img_element']['#attributes']['height'] = $image_factory->get($fallback_image)->getHeight();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function base_preprocess_node(&$variables) {
+  $node = $variables['elements']['#node'];
+  $bundle = $node->bundle();
+  $view_mode = $variables['elements']['#view_mode'];
+}
+
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function base_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+  $term = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
 }

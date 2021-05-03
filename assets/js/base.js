@@ -5,6 +5,33 @@
   'use strict';
 
   /**
+   * Sticky header on scroll.
+   */
+  function stickyHeader() {
+    let header = $('.header');
+    let headerHeight = header.outerHeight()
+    let pageWrapper = $('.dialog-off-canvas-main-canvas');
+
+    if ($(window).outerWidth() > 0){
+      let windowScroll = $(window).scrollTop();
+      if (windowScroll >= headerHeight) {
+        header.addClass('is-fixed');
+        pageWrapper.attr('style', 'padding-top: ' + headerHeight + 'px');
+      } else {
+        header.removeClass('is-fixed');
+        pageWrapper.removeAttr('style');
+      }
+    }
+  }
+
+  $(window).scroll(function () {
+    stickyHeader();
+  });
+
+  stickyHeader();
+
+
+  /**
    * Mobile menu.
    */
   $('.mobile-menu__trigger').click(function () {

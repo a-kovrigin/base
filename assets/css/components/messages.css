@@ -1,0 +1,36 @@
+/* --------------------------------- Messages --------------------------------- */
+div[data-drupal-messages] {
+  width: 100%;
+}
+
+.messages {
+  padding: 1.1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+  background-color: #c3e4ac;
+  border: 1px solid #b8dca0;
+  color: #234600;
+  font-size: 0.94rem;
+}
+
+.messages--error {
+  background-color: var(--color-danger-light);
+  border-color: var(--color-danger-light);
+}
+
+.messages ul {
+  margin: 0 0 0 1em;
+  padding: 0;
+}
+
+.messages ul li {
+  margin-bottom: 6px;
+}
+
+.messages ul li:empty {
+  display: none;
+}
+
+.messages ul li:last-child {
+  margin-bottom: 0;
+}
