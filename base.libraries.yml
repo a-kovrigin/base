@@ -16,7 +16,10 @@ global-styling:
       assets/css/components/forms.css: {}
   js:
     assets/js/base.js: {}
-    assets/js/vendor.js: {}
+
+maskedinput:
+  js:
+    assets/js/maskedinput.js: {}
 
 local-tasks:
   css:
