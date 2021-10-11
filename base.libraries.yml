@@ -58,4 +58,4 @@ maintenance:
 front:
   css:
     theme:
-      assets/css/contnet/front.css: {}
+      assets/css/content/front.css: {}

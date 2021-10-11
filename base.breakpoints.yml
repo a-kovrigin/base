@@ -4,19 +4,19 @@ base.xs:
   weight: 0
   multipliers:
     - 1x
-brw.sm:
+base.sm:
   label: S
   mediaQuery: '(min-width: 620px)'
   weight: 0
   multipliers:
     - 1x
-brw.md:
-  label: MD
+base.m:
+  label: M
   mediaQuery: '(min-width: 860px)'
   weight: 0
   multipliers:
     - 1x
-brw.xl:
+base.xl:
   label: XL
   mediaQuery: '(min-width: 1100px)'
   weight: 0

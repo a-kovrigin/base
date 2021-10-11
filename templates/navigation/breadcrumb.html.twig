@@ -8,11 +8,14 @@
  */
 #}
 {% if breadcrumb %}
-  <ol>
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
   {% for item in breadcrumb %}
-    <li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       {% if item.url %}
-        <a href="{{ item.url }}">{{ item.text }}</a>
+        <a href="{{ item.url }}" itemprop="item">
+          <span itemprop="name">{{ item.text }}</span>
+          <meta itemprop="position" content="{{ loop.index }}">
+        </a>
       {% else %}
         {{ item.text }}
       {% endif %}
