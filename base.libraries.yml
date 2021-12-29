@@ -13,13 +13,10 @@ global-styling:
       assets/css/components/typography.css: {}
       assets/css/components/messages.css: {}
       assets/css/components/ajax.css: {}
+      assets/css/components/form.css: {}
+
   js:
     assets/js/base.js: {}
-
-form:
-  css:
-    component:
-      assets/css/components/form.css: {}
 
 maskedinput:
   js:
