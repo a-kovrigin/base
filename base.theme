@@ -147,8 +147,25 @@ function base_preprocess_responsive_image(&$variables) {
  */
 function base_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
-  $bundle = $node->bundle();
   $view_mode = $variables['elements']['#view_mode'];
+  $bundle = $node->bundle();
+  $theme_name = \Drupal::theme()->getActiveTheme()->getName();
+
+  // E.g. 'news' => ['full', 'teaser'] expects 'news-full' and 'news-teaser' libraries.
+  $libraries = [];
+
+  foreach ($libraries as $bundle_id => $view_modes) {
+    if ($bundle_id === $bundle) {
+      if (in_array($view_mode, $view_modes)) {
+        $library_name = implode('-', [
+          $bundle, $view_mode,
+        ]);
+        $variables['#attached']['library'][] = implode('/', [
+          $theme_name, $library_name,
+        ]);
+      }
+    }
+  }
 }
 
 /**
