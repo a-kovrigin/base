@@ -33,3 +33,8 @@ tab.forEach(function (tab) {
     }
   });
 })
+
+let tabsgroup = document.querySelectorAll('.tabsgroup');
+tabsgroup.forEach(function (group) {
+  group.querySelector('.tab').dispatchEvent(new Event('click'));
+})
