@@ -1,4 +1,8 @@
-/* --------------------------------- Messages --------------------------------- */
+/**
+ * @file
+ * Messages.
+ */
+
 div[data-drupal-messages] {
   width: 100%;
 }
@@ -7,9 +11,9 @@ div[data-drupal-messages] {
   padding: 1.1rem;
   margin-bottom: 2rem;
   border-radius: var(--border-radius);
-  background-color: #c3e4ac;
-  border: 1px solid #b8dca0;
-  color: #234600;
+  background-color: var(--color-success-light);
+  border: 1px solid var(--color-success-border);
+  color: var(--base-font-color);
   font-size: 0.94rem;
 }
 
@@ -24,7 +28,7 @@ div[data-drupal-messages] {
 }
 
 .messages ul li {
-  margin-bottom: 6px;
+  margin-bottom: 0.375rem;
 }
 
 .messages ul li:empty {

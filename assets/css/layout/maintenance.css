@@ -1,4 +1,8 @@
-/* ------------------------- Maintenance pages ------------------------- */
+/**
+ * @file
+ * Maintenance page layout.
+ */
+
 .maintenance-page {
   background-color: var(--base-color);
 }

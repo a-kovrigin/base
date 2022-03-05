@@ -1,4 +1,8 @@
-/* ------------------------- Pager ------------------------- */
+/**
+ * @file
+ * Pager.
+ */
+
 .pager {
   display: flex;
   flex-direction: column;
@@ -17,7 +21,7 @@
 
 .pager__item {
   display: block;
-  margin: 0 4px;
+  margin: 0 0.25rem;
   font-size: 0.875rem;
   color: var(--color-gray);
 }
@@ -42,11 +46,11 @@
 }
 
 .pager__item a:hover {
-  color: #fff;
+  color: var(--color-white);
   background-color: var(--base-color);
 }
 
 .pager__item.is-active a {
   background-color: var(--base-color);
-  color: #fff;
+  color: var(--color-white);
 }

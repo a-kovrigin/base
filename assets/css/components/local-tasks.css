@@ -1,4 +1,8 @@
-/* --------------------------------- Menu local tasks --------------------------------- */
+/**
+ * @file
+ * Local tasks.
+ */
+
 .nav-tabs {
   display: flex;
   justify-content: flex-start;
@@ -18,7 +22,6 @@
   padding: 1rem 2rem;
   white-space: nowrap;
   font-size: 0.875rem;
-  font-weight: 300;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
@@ -28,6 +31,6 @@
 
 .nav-tabs a.is-active {
   display: block;
-  background-color: #fff;
-  border-color: var(--border-color) var(--border-color) #fff;
+  background-color: var(--color-white);
+  border-color: var(--border-color) var(--border-color) var(--color-white);
 }

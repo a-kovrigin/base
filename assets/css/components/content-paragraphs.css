@@ -1,0 +1,71 @@
+/**
+ * @file
+ * Content paragraphs.
+ */
+
+:root {
+  --content-paragraph-gap: 3rem;
+}
+
+.content-paragraphs > .paragraph:not(:last-child) {
+  margin-bottom: var(--content-paragraph-gap);
+}
+
+.paragraph--content-media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.paragraph--content-media .content-media-entity-field {
+  position: relative;
+  width: 50%;
+}
+
+.paragraph--content-media .body-field {
+  width: 46%;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.paragraph--content-media.media-position--right {
+  flex-direction: row-reverse;
+}
+
+.paragraph--content-media.media-position--above {
+  flex-direction: column;
+}
+
+.paragraph--content-media.media-position--above .content-media-entity-field {
+  width: 100%;
+}
+
+.paragraph--content-media.media-position--above .body-field {
+  width: 100%;
+  margin-top: 2rem;
+  border: none;
+  padding: 0 var(--spacer);
+}
+
+.content-media-video-entity-field {
+  position: relative;
+}
+
+/* ------------------------- @media------------------------- */
+@media screen and (max-width: 560px) {
+  :root {
+    --content-paragraph-gap: 1.5rem;
+  }
+  .paragraph--content-media .content-media-entity-field {
+    width: 100%;
+  }
+  .paragraph--content-media .body-field {
+    width: 100%;
+    border: none;
+  }
+  .paragraph--content-media.media-position--above .body-field {
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+}

@@ -1,3 +1,8 @@
+/**
+ * @file
+ * Typography.
+ */
+
 /* ------------------------- Headings ------------------------- */
 h1,
 h2,
@@ -7,25 +12,25 @@ h3 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: var(--font-size-h1);
   margin-bottom: 2rem;
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: var(--font-size-h2);
   margin-bottom: 1.25rem;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-h3);
   margin-bottom: 0.75rem
 }
 
-/* ------------------------- Text field ------------------------- */
+/* ------------------------- Basic text field ------------------------- */
 .body-field {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
-  line-height: 1.9;
+  line-height: 1.7;
 }
 
 .body-field p {
@@ -38,7 +43,7 @@ h3 {
 
 .body-field ul,
 .body-field ol {
-  margin-left: 20px;
+  margin-left: 1.25rem;
   margin-bottom: 1rem;
 }
 
@@ -52,7 +57,7 @@ h3 {
 }
 
 .body-field strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .body-field blockquote {

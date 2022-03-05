@@ -1,24 +1,26 @@
 global-styling:
   css:
     base:
-      assets/css/base/base.css: {}
+      assets/css/base/fonts.css: {}
+      assets/css/base/variables.css: {}
+      assets/css/base/reset.css: {}
+      assets/css/base/utility.css: {}
+      assets/css/base/animations.css: {}
     layout:
-      assets/css/layout/header.css: {}
-      assets/css/layout/footer.css: {}
+      assets/css/layout/layout.css: {}
     component:
-      assets/css/components/elements.css: {}
-      assets/css/components/images.css: {}
-      assets/css/components/links.css: {}
-      assets/css/components/buttons.css: {}
-      assets/css/components/typography.css: {}
-      assets/css/components/messages.css: {}
       assets/css/components/ajax.css: {}
+      assets/css/components/messages.css: {}
+      assets/css/components/buttons.css: {}
       assets/css/components/form.css: {}
-
+      assets/css/components/links.css: {}
+      assets/css/components/typography.css: {}
+      assets/css/components/region/header.css: {}
+      assets/css/components/region/footer.css: {}
   js:
     assets/js/base.js: {}
 
-maskedinput:
+masked-input:
   js:
     assets/js/maskedinput.js: {}
 
@@ -39,10 +41,12 @@ tabs:
   js:
     assets/js/tabs.js: {}
 
-modal:
+modals:
   css:
     component:
-      assets/css/components/modal.css: {}
+      assets/css/components/modals.css: {}
+  js:
+    assets/js/modals.js: {}
 
 pager:
   css:
@@ -59,7 +63,12 @@ maintenance:
     layout:
       assets/css/layout/maintenance.css: {}
 
-front:
+content-paragraphs:
   css:
-    theme:
-      assets/css/content/front.css: {}
+    component:
+      assets/css/components/content-paragraphs.css: {}
+
+oembed-video-fancybox-link:
+  css:
+    component:
+      assets/css/components/oembed-video-fancybox-link.css: {}

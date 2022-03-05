@@ -1,6 +1,7 @@
 /**
  * @file
  */
+
 'use strict';
 
 let tab = document.querySelectorAll('.tab');

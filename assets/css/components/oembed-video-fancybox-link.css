@@ -1,0 +1,53 @@
+/**
+ * @file
+ * Oembed video Fancybox link.
+ */
+
+.remote-video {
+  position: relative;
+}
+
+.thumbnail-field {
+  display: flex;
+  justify-content: center;
+}
+
+.oembed-video-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.oembed-video-link:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5rem;
+  height: 5rem;
+  margin: -2.5rem 0 0 -2.5rem;
+  background-color: var(--base-color);
+  border-radius: 50%;
+  transition: .3s ease;
+}
+
+.oembed-video-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 1.25rem solid #fff;
+  border-right: 0.75rem solid transparent;
+  border-left: 0.75rem solid transparent;
+  top: 50%;
+  left: 50%;
+  margin: -0.5625rem 0 0 -0.5rem;
+  transform: rotate(270deg);
+}
+
+
+.oembed-video-link:hover:before {
+  transform: scale(1.1);
+}

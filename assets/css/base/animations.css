@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Animations.
+ */
+
+@keyframes fadeIn {
+  from {
+    visibility: hidden;
+    transition: all 300ms cubic-bezier(.2, 0, .2, 1);
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

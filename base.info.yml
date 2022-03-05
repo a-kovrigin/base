@@ -7,8 +7,6 @@ base theme: stable9
 
 libraries:
   - base/global-styling
-  - core/jquery
-  - core/drupal
 
 regions:
   header: Header

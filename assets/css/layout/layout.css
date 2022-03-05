@@ -1,0 +1,37 @@
+/**
+ * @file
+ * Base Layout.
+ */
+
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  line-height: 1.4;
+  font-family: var(--base-font);
+  color: var(--base-font-color);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dialog-off-canvas-main-canvas {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-layout {
+  margin-top: var(--main-layout-gap);
+  margin-bottom: auto;
+}

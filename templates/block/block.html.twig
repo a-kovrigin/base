@@ -1,13 +1,17 @@
 {% do attributes.removeAttribute('id') %}
-{% spaceless %}
-  <div{{ attributes.addClass(class) }}>
-    {{ title_prefix }}
-    {% if label %}
-      <p{{ title_attributes.addClass(class ~ '__heading heading') }}>{{ label }}</p>
-    {% endif %}
-    {{ title_suffix }}
-    {% block content %}
-      {{ content }}
-    {% endblock %}
+<div{{ attributes }}>
+  {% if wrapped %}
+  <div class="{{ class }}__content container">
+  {% endif %}
+  {{ title_prefix }}
+  {% if label %}
+    <p{{ title_attributes }}>{{ label }}</p>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+  {% if wrapped %}
   </div>
-{% endspaceless %}
+  {% endif %}
+</div>

@@ -5,7 +5,7 @@ dependencies:
     - system
   theme:
     - base
-id: branding
+id: header_branding
 theme: base
 region: header
 weight: 0

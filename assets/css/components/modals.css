@@ -1,4 +1,8 @@
-/* ------------------------- Modal forms ------------------------- */
+/**
+ * @file
+ * Modals.
+ */
+
 .modals {
   display: none;
   position: fixed;
@@ -31,45 +35,45 @@
   animation: fadeIn .4s ease;
 }
 
-.modal-form {
+.modal-block {
   position: relative;
   display: none;
-  width: 460px;
+  width: var(--modal-block-width);
   height: auto;
   padding: 2rem 3rem;
-  background-color: #fff;
+  background-color: var(--color-white);
   box-shadow: 0 2px 20px rgba(209, 208, 208, 0.25);
   border-radius: 5px;
   z-index: 101;
 }
 
-.modal-form.is-visible {
+.modal-block.is-visible {
   display: block;
 }
 
-.modal-form__heading {
+.modal-block__heading {
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 2rem;
   margin-bottom: 1.5rem;
 }
 
-.modal-form .form-item {
-  margin-bottom: 15px;
+.modal-block .form-item {
+  margin-bottom: calc(var(--form-item-gap) * .8);
 }
 
-.modal-form input[type="text"],
-.modal-form input[type="email"],
-.modal-form input[type="tel"]{
-  height: calc(var(--button-height) * 0.8);
-  line-height: calc(var(--button-height) * 0.8);
+.modal-block input[type="text"],
+.modal-block input[type="email"],
+.modal-block input[type="tel"]{
+  height: calc(var(--button-height) * .8);
+  line-height: calc(var(--button-height) * .8);
 }
 
-.modal-form textarea {
-  height: 100px;
+.modal-block textarea {
+  height: 6.25rem;
 }
 
-.modal-form .form-actions {
+.modal-block .form-actions {
   width: 100%;
   margin-top: 1rem;
 }
@@ -78,10 +82,10 @@
   position: absolute;
   top: .5rem;
   right: .5rem;
-  width: 40px;
-  height: 40px;
-  color: #fff;
-  line-height: 35px;
+  width: 2.625rem;
+  height: 2.625rem;
+  color: var(--color-white);
+  line-height: 2.25rem;
   font-size: 2rem;
   text-align: center;
   cursor: pointer;

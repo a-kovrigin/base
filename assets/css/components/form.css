@@ -1,4 +1,8 @@
-/* ------------------------- Form elements ------------------------- */
+/**
+ * @file
+ * Forms.
+ */
+
 .contact-form {
   display: flex;
   flex-wrap: wrap;
@@ -13,14 +17,13 @@
 }
 
 .form-item {
-  margin-bottom: 20px;
+  margin-bottom: var(--form-item-gap);
 }
 
 .form-item label {
   display: block;
   margin-bottom: .5rem;
   font-size: 0.9375rem;
-  font-weight: 600;
 }
 
 .form-item .description {
@@ -31,24 +34,25 @@
 
 input,
 textarea,
+select,
 .filefield label {
   display: block;
   width: 100%;
   font-family: var(--base-font);
-  height: var(--button-height);
-  line-height: var(--button-height);
+  height: var(--input-height);
+  line-height: var(--input-height);
   border: 1px solid var(--input-border-color);
   color: var(--base-font-color);
-  background-color: #fff;
-  padding: 0 1.25rem;
-  border-radius: 3px;
+  background-color: var(--color-white);
+  padding: 0 var(--input-padding);
+  border-radius: var(--border-radius);
   font-size: 0.875rem;
   transition: .2s ease;
 }
 
 textarea {
-  padding: 1.25rem;
-  height: 170px;
+  padding: var(--input-padding);
+  height: 10rem;
   line-height: 1.4;
 }
 
@@ -59,13 +63,13 @@ textarea::placeholder {
 
 input:hover,
 textarea:hover,
-.selectize-input:hover {
+select:hover {
   border-color: var(--base-color);
 }
 
 input:focus,
 textarea:focus,
-.selectize-input:focus {
+select:focus {
   border-color: var(--base-color);
   box-shadow: 0 0 0 4px var(--base-color-light);
 }
@@ -78,16 +82,12 @@ input::-webkit-inner-spin-button {
 
 input.error,
 textarea.error,
-select.error ~ .selectize-control .selectize-input {
+select.error {
   border-color: var(--color-danger);
 }
 
 input[type=number] {
   -moz-appearance: textfield;
-}
-
-select {
-  display: none;
 }
 
 .js-form-type-radio,
@@ -101,23 +101,18 @@ input[type="radio"] {
   top: 0;
   left: 0;
   padding: 0;
-  width: 20px;
-  height: 20px;
+  width: var(--input-checker-width);
+  height: var(--input-checker-width);
   border-radius: 50%;
   transition: none;
-}
-
-input[type="radio"]:checked {
-  background: var(--sprite) no-repeat 4px -313px var(--base-color);
-  border-color: var(--base-color);
 }
 
 input[type="checkbox"] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: var(--input-checker-width);
+  height: var(--input-checker-width);
   padding: 0;
   border: 1px solid var(--input-border-color);
 }
@@ -137,7 +132,7 @@ input[type="file"] ~ .button {
 }
 
 .agreement-field .form-item {
-  padding-left: 35px;
+  padding-left: 2.25rem;
 }
 
 .agreement-field label {
@@ -145,16 +140,7 @@ input[type="file"] ~ .button {
   display: block;
   font-size: 0.9375rem;
   line-height: 1.4;
-  font-weight: 300;
   transition: opacity .2s ease;
-}
-
-.agreement-field label a {
-  color: var(--color-success);
-}
-
-.agreement-field label a:hover {
-  color: var(--color-success-hover);
 }
 
 .agreement-field input {
@@ -164,4 +150,10 @@ input[type="file"] ~ .button {
 
 details summary {
   margin-bottom: 1rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }

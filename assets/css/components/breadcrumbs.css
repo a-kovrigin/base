@@ -1,4 +1,8 @@
-/* ------------------------- Breadcrumbs ------------------------- */
+/**
+ * @file
+ * Breadcrumbs.
+ */
+
 .breadcrumbs {
   margin-bottom: 1.5rem;
 }
@@ -18,7 +22,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 600px;
+  max-width: 37.5rem;
 }
 
 .breadcrumbs ol li:after {
@@ -27,7 +31,7 @@
   width: 9px;
   height: 1px;
   background-color: var(--color-gray);
-  margin: 0 5px;
+  margin: 0 0.3125rem;
 }
 
 .breadcrumbs ol li:last-child:after {

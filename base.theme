@@ -5,20 +5,11 @@
  * Main file for Base theme.
  */
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
-
-/**
- * Implements hook_preprocess_html().
- */
-function base_preprocess_html(&$variables) {
-  if (\Drupal::service('path.matcher')->isFrontPage()) {
-    $variables['attributes']['class'][] = 'is-front';
-    $variables['#attached']['library'][] = 'base/front';
-  }
-}
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -31,13 +22,8 @@ function base_preprocess_region(&$variables) {
  * Implements hook_preprocess_page().
  */
 function base_preprocess_page(&$variables) {
-  $page = &$variables['page'];
-
-  // Sidebar layout attributes.
   $layout_attributes = new Attribute();
   $layout_attributes->addClass('main-layout');
-  $layout_attributes->addClass('container');
-
 
   if (!empty($variables['page']['sidebar'])) {
     $layout_attributes->addClass('main-layout--with-sidebar');
@@ -54,7 +40,40 @@ function base_preprocess_block(&$variables) {
     return;
   }
 
-  $variables['class'] = Html::cleanCssIdentifier($variables['elements']['#id']);
+  $block_class = Html::cleanCssIdentifier($variables['elements']['#id']);
+  $variables['attributes']['class'][] = $block_class;
+  $variables['class'] = $block_class;
+  $variables['title_attributes']['class'][] = implode('__', [$block_class, 'heading']);
+  $variables['title_attributes']['class'][] = 'heading';
+
+  // Block with inner container.
+  $block_id = $variables['elements']['#id'];
+  $has_container = FALSE;
+  $wrapped_blocks = [
+    'breadcrumbs',
+    'page_title',
+    'local_tasks',
+  ];
+
+  if (in_array($block_id, $wrapped_blocks)) {
+    $has_container = TRUE;
+  }
+
+  $block = Block::load($block_id);
+  $third_party_settings = $block->getThirdPartySettings('block_layout');
+  if (!empty($third_party_settings)) {
+    if (isset($third_party_settings['wrapped'])) {
+      $has_container = $third_party_settings['wrapped'];
+    }
+  }
+
+  $variables['wrapped'] = $has_container;
+
+  // Modals region.
+  $block_region = $block->getRegion();
+  if ($block_region == 'modals') {
+    $variables['#attached']['library'][] = 'base/modals';
+  }
 }
 
 /**
@@ -62,7 +81,15 @@ function base_preprocess_block(&$variables) {
  */
 function base_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   if (isset($variables['elements']['content']['#block_content'])) {
-    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+    /** @var \Drupal\block_content\Entity\BlockContent $block */
+    $block = $variables['elements']['content']['#block_content'];
+    $bundle = $block->bundle();
+    array_splice($suggestions, 1, 0, 'block__' . $bundle);
+  }
+
+  if (isset($variables['elements']['#id'])) {
+    $block = Block::load($variables['elements']['#id']);
+    $suggestions[] = 'block__region__' . $block->getRegion();
   }
 }
 
@@ -80,6 +107,20 @@ function base_preprocess_field(&$variables) {
   $field_name = $variables['field_name'];
   $field_name_formatted = str_replace('field_', '', $field_name) . '-field';
   $variables['field_name'] = Html::cleanCssIdentifier($field_name_formatted);
+
+  switch ($field_name) {
+    // Content paragraphs field.
+    case 'field_content_paragraphs':
+      $variables['#attached']['library'][] = 'store_theme/content-paragraphs';
+      break;
+
+    // Oembed video Fancybox link field.
+    case 'field_media_oembed_video':
+      if ($variables['element']['#formatter'] == 'oembed_video_fancybox') {
+        $variables['#attached']['library'][] = 'base/oembed-video-fancybox-link';
+      }
+      break;
+  }
 }
 
 /**
@@ -214,13 +255,6 @@ function base_preprocess_views_view(&$variables) {
  */
 function base_preprocess_input(&$variables) {
   if (strpos($variables['element']['#name'], 'phone') !== FALSE) {
-    $variables['#attached']['library'][] = 'base/maskedinput';
+    $variables['#attached']['library'][] = 'base/masked-input';
   }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function base_preprocess_form(&$variables) {
-  $variables['#attached']['library'][] = 'base/form';
 }

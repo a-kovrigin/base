@@ -1,0 +1,58 @@
+/**
+ * @file
+ * Global variables.
+ */
+
+:root {
+  /* Fonts */
+  --base-font: 'Open Sans', sans-serif;
+  --base-font-color: #323232;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.25rem;
+
+  /* Layout */
+  --main-layout-gap: 2.5rem;
+  --container-width: 80rem;
+  --container-padding: 1rem;
+  --header-height: 6rem;
+  --spacer: 5rem;
+  --sidebar-width: 20rem;
+  --content-small-width: calc(100% - var(--sidebar-width) - 2rem);
+
+  /* Borders */
+  --border-color: #eee;
+  --input-border-color: #e3e3e3;
+
+  /* Forms */
+  --form-item-gap: 1.25rem;
+  --input-height: 3rem;
+  --input-padding: 1.25rem;
+  --input-checker-width: 20px;
+
+  /* Border radius */
+  --border-radius: 3px;
+
+  /* Buttons */
+  --button-height: 3.25rem;
+  --button-padding: 1.5rem;
+
+  /* Modals */
+  --modal-block-width: 30rem;
+
+  /* Colors */
+  --base-color: #0063d7;
+  --base-color-hover: #0054b7;
+  --base-color-light: #F6F8FA;
+  --color-white: #fff;
+  --color-gray: #878787;
+  --color-gray-light: #CBCBCB;
+  --color-success: #00B53B;
+  --color-success-hover: #009631;
+  --color-success-light: #c3e4ac;
+  --color-success-border: #b8dca0;
+  --color-warning: #EF9328;
+  --color-danger: #ff465c;
+  --color-danger-light: #ffe8ec;
+  --color-disabled: #ccc;
+}
