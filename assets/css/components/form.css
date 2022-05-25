@@ -38,6 +38,7 @@ select,
 .filefield label {
   display: block;
   width: 100%;
+  margin: 0;
   font-family: var(--base-font);
   height: var(--input-height);
   line-height: var(--input-height);
