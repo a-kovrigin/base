@@ -1,0 +1,17 @@
+{% set class = "section" %}
+{%
+  set classes = [
+  class,
+  "paragraph",
+  "paragraph--" ~ paragraph.bundle|clean_class,
+]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <div class="{{ class }}__content container">
+        {{ content }}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

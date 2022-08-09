@@ -4,6 +4,10 @@
  */
 
 .toolbar-fixed .header.is-fixed {
+  top: 39px;
+}
+
+.toolbar-horizontal.toolbar-fixed.toolbar-tray-open .header.is-fixed {
   top: 79px;
 }
 
